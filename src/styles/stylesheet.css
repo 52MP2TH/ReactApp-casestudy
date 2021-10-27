@@ -1,0 +1,113 @@
+h3{
+    font-family: "Times New Roman", Times, serif;
+}
+.login-body{
+    margin-top: 100px;
+} 
+.input-group-text{
+        padding: 15px;
+}
+.user_card {
+        height: 400px;
+        width: 350px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: #f39c12;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+}
+.form_container {
+        margin-top: 100px;
+}
+.login_btn {
+        width: 100%;
+        background: #c0392b !important;
+        color: white !important;
+}
+.login_btn:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+.login_container {
+        padding: 0 2rem;
+}
+.input-group-text {
+        background: #c0392b !important;
+        color: white !important;
+        border: 0 !important;
+        border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+        background-color: #c0392b !important;
+}
+
+.sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        background-color: rgb(17, 17, 17);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+}
+      
+.sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+}
+      
+.sidebar a:hover {
+        color: #f1f1f1;
+}
+      
+ .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      
+ .openbtn {
+        font-size: 15px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+}
+      
+.openbtn:hover {
+        background-color: #444;
+      }
+      
+ .mainBody {
+        transition: margin-left .5s;
+        padding: 16px 16px 0px 16px;
+}
+      
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+        .sidebar {padding-top: 15px;}
+        .sidebar a {font-size: 18px;}
+}
+    
