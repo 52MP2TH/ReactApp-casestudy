@@ -23,7 +23,6 @@ function Loginpage({ usersList, history }) {
 
     return (
         <div className="container h-100 login-body">
-            {console.log(usersList, "from login page")}
             <div className=" d-flex justify-content-center">
                 {showError && <p className="errorText">Invalid userEmail or Password, Try again!</p>}
             </div>

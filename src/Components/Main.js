@@ -5,6 +5,7 @@ import Registerpage from './Registerpage';
 import Welcomepage from "./Welcomepage";
 import AllUsers from "./AllUsers";
 import Editprofile from "./Editprofile";
+import PageNotFound from "./PageNotFound";
 
 class Main extends Component {
     constructor() {
@@ -65,17 +66,19 @@ class Main extends Component {
     }
 
     deleteUser(userId) {
-        const newUserList = this.state.usersList.filter(user => user.id !== userId)
-        this.setState({ usersList: newUserList })
-        console.log(newUserList, "inside deleteuser in main")
-        console.log(this.state.usersList, "inside deleteuser in main")
+        this.setState((state) => ({
+            usersList: state.usersList.filter(user => user.id !== Number(userId))
+        }))
     }
 
     render() {
         return (
             <Switch>
                 <Route path="/" exact render={({ history }) => (
-                    <Loginpage usersList={this.state.usersList} history={history} />
+                    <div>
+                        <Loginpage usersList={this.state.usersList} history={history} />
+                        {console.log(this.state.usersList)}
+                    </div>
                 )} />
                 <Route path="/Loginpage" render={({ history }) => (
                     <Loginpage usersList={this.state.usersList} history={history} />
@@ -93,11 +96,12 @@ class Main extends Component {
                     <AllUsers usersList={this.state.usersList} addTodoUser={this.addTodoUser} history={history} location={location} />
                 )} />
                 <Route path="/Editprofile" render={({ history }) => (
-                    <Editprofile usersList={this.state.usersList} history={history} onDeleteUser={(userId) => {
+                    <Editprofile usersList={this.state.usersList} history={history} onAddUser={(newUser => this.addUser(newUser))} onDeleteUserForUpdate={(userId) => this.deleteUser(userId)} onDeleteUser={(userId) => {
                         this.deleteUser(userId)
                         history.push("/")
                     }} />
                 )} />
+                <Route path="*" component={PageNotFound} />
             </Switch>
         )
     }

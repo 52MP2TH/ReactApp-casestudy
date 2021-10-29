@@ -13,15 +13,16 @@ class Navbar extends Component {
 
     render() {
         const user = this.props.usersList.filter(userData => userData.id === parseInt(this.props.userId))
-        //console.log(user)
-        return (<div>
-            <nav className="navbar narbar-light bg-light">
-                <div className="container-fluid">
-                    <h4>Hi, {user[0].firstName} {user[0].lastName} </h4>
-                    <button type="submit" className="btn btn-warning" onClick={this.logout}>Logout</button>
-                </div>
-            </nav>
-        </div >)
+        return (
+            <div>
+                <nav className="navbar narbar-light bg-light">
+                    <div className="container-fluid">
+                        <h4>Hi, {user[0].firstName} {user[0].lastName} </h4>
+                        <button type="submit" className="btn btn-warning" onClick={this.logout}>Logout</button>
+                    </div>
+                </nav>
+            </div >
+        )
     }
 }
 
