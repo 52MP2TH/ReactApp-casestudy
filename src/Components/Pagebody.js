@@ -7,6 +7,7 @@ class Pagebody extends Component {
         super()
         this.openNav = this.openNav.bind(this)
         this.closeNav = this.closeNav.bind(this)
+        this.sendUserIdtoAlluserspage = this.sendUserIdtoAlluserspage.bind(this)
         this.sendUserIdtoEditpage = this.sendUserIdtoEditpage.bind(this)
     }
 
@@ -20,6 +21,10 @@ class Pagebody extends Component {
         document.getElementById("mainBody").style.marginLeft = "0";
     }
 
+    sendUserIdtoAlluserspage() {
+        const userId = this.props.userId;
+        this.props.history.push("/AllUsers/:" + userId)
+    }
     sendUserIdtoEditpage() {
         const userId = this.props.userId;
         this.props.history.push("/Editprofile/:" + userId)
@@ -30,7 +35,7 @@ class Pagebody extends Component {
             <div>
                 <div id="mySidebar" className="sidebar">
                     <a href="#" className="closebtn" onClick={this.closeNav}>×</a>
-                    <Link to="/AllUsers">Users</Link>
+                    <Link to="#" onClick={this.sendUserIdtoAlluserspage}>Users</Link>
                     <Link to="#" onClick={this.sendUserIdtoEditpage}>Profile</Link>
                     <Link to="/ProductsDisplay"></Link>
                 </div>

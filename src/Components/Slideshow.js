@@ -27,7 +27,7 @@ function Slideshow() {
         <div id="carouselExampleControls" className="carousel slide h-100" data-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img className="d-block mh-100 w-100" src={SlideImages[currentSlide].src} alt={SlideImages[currentSlide].txt} />
+                    <img className="d-block w-100" src={SlideImages[currentSlide].src} alt={SlideImages[currentSlide].txt} />
                 </div>
             </div>
             <button className="carousel-control-prev" data-slide="prev" onClick={goToPrevious}>

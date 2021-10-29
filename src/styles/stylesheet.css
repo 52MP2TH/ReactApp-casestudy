@@ -4,8 +4,9 @@ h3{
 .login-body{
     margin-top: 100px;
 } 
-.input-group-text{
-        padding: 15px;
+.errorText{
+    color: red;
+    margin-left: 7px;
 }
 .user_card {
         height: 400px;
@@ -40,6 +41,7 @@ h3{
         padding: 0 2rem;
 }
 .input-group-text {
+        padding: 15px;
         background: #c0392b !important;
         color: white !important;
         border: 0 !important;
@@ -52,6 +54,15 @@ h3{
 }
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
         background-color: #c0392b !important;
+}
+
+.registerPage{
+        background-color: #f1f1f1;
+        padding-bottom: 5rem;
+}
+
+.registerPage h1{
+        font-family: 'Times New Roman', Times, serif;
 }
 
 .sidebar {
@@ -102,7 +113,7 @@ h3{
       
  .mainBody {
         transition: margin-left .5s;
-        padding: 16px 16px 0px 16px;
+        /* padding: 16px 16px 0px 16px; */
 }
       
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -110,4 +121,41 @@ h3{
         .sidebar {padding-top: 15px;}
         .sidebar a {font-size: 18px;}
 }
-    
+.carousel-item img{
+    height: 655px;
+}
+
+.allusersdisplay{
+    background-color: rgb(216, 206, 206);    
+}
+
+.card-display{
+     display: flex;
+     flex-wrap: wrap;
+}
+
+.card{
+        width: 20rem;
+        flex-basis: calc(33.333% - 4rem);
+        border: 1px solid #1a3dff;
+        margin: 10px;
+        flex-grow: 1;
+}
+
+.card img{
+        height: 25rem;
+}
+
+.todo-box{
+        border: 1px black;
+} 
+
+.editpagebody{
+        background-color: #f1f1f1;
+}
+.editform{
+        margin-top: 5rem;
+}
+.updatebutton{
+        margin: 0px 100px 0px 80px;
+}

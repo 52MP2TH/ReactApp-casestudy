@@ -5,7 +5,6 @@ import Registerpage from './Registerpage';
 import Welcomepage from "./Welcomepage";
 import AllUsers from "./AllUsers";
 import Editprofile from "./Editprofile";
-import ProductsDisplay from "./ProductsDisplay"
 
 class Main extends Component {
     constructor() {
@@ -18,7 +17,9 @@ class Main extends Component {
                     password: "Sampath@123",
                     firstName: "Sam",
                     lastName: "C",
-                    profileLink: "https://cdn.wallpapersafari.com/68/28/MfAdts.jpg"
+                    profileLink: "https://cdn.wallpapersafari.com/68/28/MfAdts.jpg",
+                    description: "I love coding....",
+                    todo_list: ["Read my book first", "Learn programming"]
                 },
                 {
                     id: 1,
@@ -26,7 +27,9 @@ class Main extends Component {
                     password: "Lokesh@123",
                     firstName: "Lok",
                     lastName: "H",
-                    profileLink: "https://images.all-free-download.com/images/graphicthumb/mallorca_tree_nature_216451.jpg"
+                    profileLink: "https://images.all-free-download.com/images/graphicthumb/mallorca_tree_nature_216451.jpg",
+                    description: "I am very good cricket player...",
+                    todo_list: []
                 },
                 {
                     id: 2,
@@ -34,15 +37,38 @@ class Main extends Component {
                     password: "Hello@123",
                     firstName: "Hel",
                     lastName: "Boy",
-                    profileLink: "https://freepngimg.com/thumb/hellboy/21728-6-hellboy-picture.png"
+                    profileLink: "https://freepngimg.com/thumb/hellboy/21728-6-hellboy-picture.png",
+                    description: "I'm Hellboy stongest of the stongest",
+                    todo_list: []
                 }
             ]
         }
         this.addUser = this.addUser.bind(this)
+        this.addTodoUser = this.addTodoUser.bind(this)
+        this.deleteUser = this.deleteUser.bind(this)
     }
 
     addUser(newUser) {
-        this.setState({ usersList: [...this.state.usersList, newUser] })
+        this.setState({ usersList: this.state.usersList.concat([newUser]) })
+    }
+
+    addTodoUser(todo) {
+        const id = todo.id;
+        const todoData = todo.data;
+        console.log(todo, "inside main")
+        let newtodosetuser = this.state.usersList.filter(user => user.id === id)
+        console.log(newtodosetuser, "new todo to add")
+        newtodosetuser[0].todo_list.concat([...newtodosetuser[0].todo_list, todoData])
+        console.log(newtodosetuser, "new todo to added after")
+        this.deleteUser(id);
+        this.addUser(newtodosetuser)
+    }
+
+    deleteUser(userId) {
+        const newUserList = this.state.usersList.filter(user => user.id !== userId)
+        this.setState({ usersList: newUserList })
+        console.log(newUserList, "inside deleteuser in main")
+        console.log(this.state.usersList, "inside deleteuser in main")
     }
 
     render() {
@@ -51,11 +77,11 @@ class Main extends Component {
                 <Route path="/" exact render={({ history }) => (
                     <Loginpage usersList={this.state.usersList} history={history} />
                 )} />
-                <Route path="/Loginpage" exact render={({ history }) => (
+                <Route path="/Loginpage" render={({ history }) => (
                     <Loginpage usersList={this.state.usersList} history={history} />
                 )} />
                 <Route path="/Registerpage" exact render={({ history }) => (
-                    <Registerpage onAddUser={(newUser) => {
+                    <Registerpage history={history} onAddUser={(newUser) => {
                         this.addUser(newUser)
                         history.push("/")
                     }} />
@@ -63,13 +89,15 @@ class Main extends Component {
                 <Route path="/Welcomepage" render={({ history, location }) => (
                     <Welcomepage usersList={this.state.usersList} history={history} location={location} />
                 )} />
-                <Route path="/AllUsers" exact render={({ history }) => (
-                    <AllUsers usersList={this.state.usersList} history={history} />
+                <Route path="/AllUsers" render={({ history, location }) => (
+                    <AllUsers usersList={this.state.usersList} addTodoUser={this.addTodoUser} history={history} location={location} />
                 )} />
                 <Route path="/Editprofile" render={({ history }) => (
-                    <Editprofile usersList={this.state.usersList} history={history} />
+                    <Editprofile usersList={this.state.usersList} history={history} onDeleteUser={(userId) => {
+                        this.deleteUser(userId)
+                        history.push("/")
+                    }} />
                 )} />
-                <Route path="/ProductsDisplay" component={ProductsDisplay} />
             </Switch>
         )
     }

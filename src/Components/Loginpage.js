@@ -1,30 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 
 function Loginpage({ usersList, history }) {
 
-    //const usersData = this.props.userData
-    //const [showError, setShowError] = useState(false)
+    const [showError, setShowError] = useState(false)
     function loginData(e) {
-
+        e.preventDefault();
         const userEmail = e.target.elements.userEmail.value;
         const password = e.target.elements.password.value;
         const userData = usersList.filter(usersData => usersData.userEmail === userEmail && usersData.password === password)
-
-        if (userData[0].userEmail && userData[0].password) {
+        if (userData.length === 0) {
+            setShowError(true)
+        }
+        else if (userData[0].userEmail && userData[0].password) {
             history.push('/Welcomepage/:' + userData[0].id);
         }
         else {
-            console.log("inside Loginpage again")
-            history.push('/Loginpage');
+            setShowError(true)
         }
-
     }
 
     return (
         <div className="container h-100 login-body">
-            <div className="d-flex justify-content-center h-100">
+            {console.log(usersList, "from login page")}
+            <div className=" d-flex justify-content-center">
+                {showError && <p className="errorText">Invalid userEmail or Password, Try again!</p>}
+            </div>
+            <div className="d-flex justify-content-center">
                 <div className="user_card">
                     <div className="d-flex justify-content-center form_container">
                         <form onSubmit={loginData}>
