@@ -1,0 +1,44 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Room Heater",
+            "description": "Orpat",
+            "price": "3199",
+            "currency": "INR",
+            "expiry_date": "2024-12-31"
+        },
+        {
+            "id": 2,
+            "name": "iPhone 12",
+            "description": "Apple ",
+            "price": "129999",
+            "currency": "INR",
+            "expiry_date": "2026-10-31"
+        },
+        {
+            "id": 3,
+            "name": "sds",
+            "description": "SdS",
+            "price": "sds",
+            "currency": "sdSD",
+            "expiry_date": "2021-01-22"
+        },
+        {
+            "id": 4,
+            "name": "Macbook Pro",
+            "description": "Apple ",
+            "price": "249000",
+            "currency": "INR",
+            "expiry_date": "2021-01-23"
+        },
+        {
+            "id": 5,
+            "name": "Desktop",
+            "description": "Lenovo",
+            "price": "1231121",
+            "currency": "INR",
+            "expiry_date": "2021-01-29"
+        }
+    ]
+}
