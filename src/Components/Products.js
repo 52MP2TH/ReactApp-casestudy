@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import Navbar from "./Navbar";
-import SingleProduct from "./SingleProduct";
+//import SingleProduct from "./SingleProduct";
 
 function Products(props) {
 
@@ -12,27 +12,20 @@ function Products(props) {
     const [productsList, setProductsList] = useState([])
     const [ranVariable, setRandVariable] = useState(0)
     const [productData, setProductData] = useState(null)
+    const [pageOff, setPageOff] = useState(1)
 
     useEffect(() => {
-        async function fetchProducts() {
+        async function fetchProducts(pageOff, limit) {
             try {
-                const response = await Axios.get("http://localhost:8000/products", { header: { "Context-Type": "application/json" } })
+                const response = await Axios.get(`http://localhost:8000/products?_page=${pageOff}&_limit=${limit}`, { header: { "Context-Type": "application/json" } })
                 setProductsList(response.data)
             }
             catch (err) {
                 console.log(err, "from fetchproducts in catch")
             }
         }
-        fetchProducts()
-    }, [ranVariable])
-
-    function addProRedirect() {
-        props.history.push("/AddProduct/:" + path[1])
-    }
-
-    function editProduct(productId) {
-        history.push("/Editproduct/:" + path[1] + "&" + productId)
-    }
+        fetchProducts(pageOff, 10)
+    }, [ranVariable, pageOff])
 
     async function callprodetails(productId) {
         try {
@@ -59,12 +52,28 @@ function Products(props) {
         }
     }
 
+    function addProRedirect() {
+        props.history.push("/AddProduct/:" + path[1])
+    }
+
+    function editProduct(productId) {
+        history.push("/Editproduct/:" + path[1] + "&" + productId)
+    }
+
+    function gotoPage1() {
+        setPageOff(1)
+    }
+
+    function gotoPage2() {
+        setPageOff(2)
+    }
+
     return (
         <div>
             <Navbar userId={path[1]} usersList={props.usersList} history={props.history} />
             <div className="productsbody">
                 <div className="text-center">
-                    <button className="btn btn-primary mt-3" onClick={addProRedirect}>Add Product</button>
+                    <button className="btn btn-primary mt-2" onClick={addProRedirect}>Add Product</button>
                 </div>
                 <div className="d-flex">
                     <div className="productswallbody">
@@ -129,6 +138,10 @@ function Products(props) {
                         </div>
                         }
                     </div>
+                </div>
+                <div className="text-center">
+                    <button className="btn btn-primary mx-2" onClick={gotoPage1}>1</button>
+                    <button className="btn btn-primary" onClick={gotoPage2}>2</button>
                 </div>
             </div>
 

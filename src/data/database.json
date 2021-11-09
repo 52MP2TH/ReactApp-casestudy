@@ -33,6 +33,22 @@
       "id": 4
     },
     {
+      "name": "knhfz",
+      "description": "Nature2",
+      "price": "8890",
+      "currency": "INR",
+      "expiry_date": "2026-10-31",
+      "id": 6
+    },
+    {
+      "name": "Realme 7 Pro",
+      "description": "Mobile Phone",
+      "price": "20999",
+      "currency": "INR",
+      "expiry_date": "2026-10-31",
+      "id": 7
+    },
+    {
       "name": "Samaung On Nxt",
       "description": "Mobile Phone",
       "price": "25999",
@@ -41,12 +57,100 @@
       "id": 8
     },
     {
+      "name": "Realme 7 Pro",
+      "description": "Mobile Phone",
+      "price": "5000",
+      "currency": "USD",
+      "expiry_date": "2026-10-31",
+      "id": 9
+    },
+    {
       "name": "knhfz",
       "description": "sfgdh",
       "price": "5000",
       "currency": "USD",
       "expiry_date": "2026-10-31",
       "id": 10
+    },
+    {
+      "name": "adopt",
+      "description": "Router",
+      "price": "499",
+      "currency": "USD",
+      "expiry_date": "2023-10-31",
+      "id": 11
+    },
+    {
+      "name": "iPhone 11",
+      "description": "Apple ",
+      "price": "59999",
+      "currency": "INR",
+      "expiry_date": "2020-03-31",
+      "id": 12
+    },
+    {
+      "name": "iBall",
+      "description": "Speaker",
+      "price": "4999",
+      "currency": "INR",
+      "expiry_date": "2021-01-22",
+      "id": 13
+    },
+    {
+      "name": "Macbook 13 Pro",
+      "description": "Apple Laptop ",
+      "price": "3090",
+      "currency": "USD",
+      "expiry_date": "2023-01-23",
+      "id": 14
+    },
+    {
+      "name": "Thikpad",
+      "description": "Lenovo",
+      "price": "",
+      "currency": "INR",
+      "expiry_date": "2021-01-29",
+      "id": 15
+    },
+    {
+      "name": "knhfz",
+      "description": "Nature2",
+      "price": "8890",
+      "currency": "INR",
+      "expiry_date": "2026-10-31",
+      "id": 16
+    },
+    {
+      "name": "Realme 7",
+      "description": "Mobile Phone",
+      "price": "15999",
+      "currency": "INR",
+      "expiry_date": "2021-10-31",
+      "id": 17
+    },
+    {
+      "name": "Samaung galaxy 8",
+      "description": "Mobile Phone",
+      "price": "15999",
+      "currency": "INR",
+      "expiry_date": "2020-10-31",
+      "id": 18
+    },
+    {
+      "name": "Realme 6 Pro",
+      "description": "Mobile Phone",
+      "price": "5000",
+      "currency": "USD",
+      "expiry_date": "2019-10-31",
+      "id": 19
+    },
+    {
+      "name": "kitez",
+      "description": "Power Red",
+      "price": "510",
+      "currency": "USD",
+      "expiry_date": "2025-10-31",
+      "id": 20
     }
   ]
 }
