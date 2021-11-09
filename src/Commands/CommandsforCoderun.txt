@@ -1,0 +1,2 @@
+npm start --> To execute the code in port 3000 i.e http://localhost:3000/
+npx json-server --watch src/data/database.json --port 8000  --> TO run JSON server in another port i.e 8000
