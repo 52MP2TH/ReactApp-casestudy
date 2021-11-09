@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 function Loginpage({ usersList, history }) {
 
     const [showError, setShowError] = useState(false)
+
+    //Logging-in user to application
     function loginData(e) {
         e.preventDefault();
         const userEmail = e.target.elements.userEmail.value;
@@ -23,6 +25,7 @@ function Loginpage({ usersList, history }) {
 
     return (
         <div className="container h-100 login-body">
+            {console.log(usersList)}
             <div className=" d-flex justify-content-center">
                 {showError && <p className="errorText">Invalid userEmail or Password, Try again!</p>}
             </div>

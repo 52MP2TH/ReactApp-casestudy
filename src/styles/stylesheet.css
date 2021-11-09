@@ -65,6 +65,10 @@ h3{
         font-family: 'Times New Roman', Times, serif;
 }
 
+.navbarhead{
+        padding-right: 950px;
+}
+
 .sidebar {
         height: 100%;
         width: 0;
@@ -166,4 +170,66 @@ h3{
 .errorImage{
         width: 100%;
         height: 638px;
+}
+
+.nouserfound img{
+        margin-left: 200px;
+}
+
+.strikethrough:checked + span{
+        text-decoration: line-through;
+        color:#818181;
+}
+
+/* .productswall{
+        font-family: "Times New Roman", Times, serif;
+        margin: 20px 20px 0px;
+        position: absolute;
+        background-image: url("https://i.dlpng.com/static/png/1390209-electronics-electronics-png-560_420_preview.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        opacity: 0.5;
+        background-size: cover;
+} */
+.productsbody{
+        background-color: #f1f1f1;
+}
+.productswallbody{
+        font-family: "Times New Roman", Times, serif;
+        margin: 20px 20px 0px; 
+}
+.singleProduct{
+        display: inline-block;
+        border:solid rgb(65, 65, 236);
+        border-radius: 5px;
+        width: 400px;
+        margin-right: 50px;
+        margin-left: 200px;
+        margin-bottom: 15px;
+}
+.singleProductbody{
+        margin-bottom: 5px;
+} 
+.singleProductbody tr:hover {background-color: #ddd;}
+.singleProductbody td{
+        padding-right: 50px;
+}
+table{
+        margin-top: 5px;
+        margin-bottom: 5px;
+}
+.editbutton{
+        padding: 5px 20px 5px 20px;
+        margin-left: 75px;
+        margin-right: 100px;
+}
+.addprotitle{
+        font-family: "Times New Roman", Times, serif;
+}
+.addProductpage{
+        background-color: #f1f1f1;
+        padding-bottom: 3rem;
+}
+.productadded{
+        color: rgb(247, 132, 55);
 }

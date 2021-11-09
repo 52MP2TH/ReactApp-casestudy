@@ -5,11 +5,20 @@ import Registerpage from './Registerpage';
 import Welcomepage from "./Welcomepage";
 import AllUsers from "./AllUsers";
 import Editprofile from "./Editprofile";
+import FilteredUsers from "./FilteredUsers";
+import Products from "./Products";
+import AddProduct from "./AddProduct"
 import PageNotFound from "./PageNotFound";
+import Editproduct from "./Editproduct";
+import Products1 from "./Products1";
+import Editproduct1 from "./Editproduct1";
+import AddProduct1 from "./AddProduct1";
+
 
 class Main extends Component {
     constructor() {
         super();
+        //Default users List (dummy)
         this.state = {
             usersList: [
                 {
@@ -49,35 +58,42 @@ class Main extends Component {
         this.deleteUser = this.deleteUser.bind(this)
     }
 
+    //For adding new user
     addUser(newUser) {
         this.setState({ usersList: this.state.usersList.concat([newUser]) })
     }
 
+    //To update user todo list
     addTodoUser(todo) {
-        const id = todo.id;
+        const index = todo.index;
         const todoData = todo.data;
-        console.log(todo, "inside main")
-        let newtodosetuser = this.state.usersList.filter(user => user.id === id)
-        console.log(newtodosetuser, "new todo to add")
-        newtodosetuser[0].todo_list.concat([...newtodosetuser[0].todo_list, todoData])
-        console.log(newtodosetuser, "new todo to added after")
-        this.deleteUser(id);
-        this.addUser(newtodosetuser)
+        // console.log(todo, "inside main")
+        const newtodosetuser = this.state.usersList[index]
+        //console.log(newtodosetuser, "before add todo in main");
+        newtodosetuser.todo_list = [...newtodosetuser.todo_list, todoData]
+        // console.log(newtodosetuser, "after add todo in main");
+        // this.deleteUser(newtodosetuser.id)
+        // console.log(this.state.usersList, "after delete user in main");
+        // this.addUser(newtodosetuser)
+        // console.log(this.state.usersList, "after adding newtodo user in main");
     }
 
+    //For deleting existing user with user id
     deleteUser(userId) {
+        console.log("in main deleteuser")
         this.setState((state) => ({
             usersList: state.usersList.filter(user => user.id !== Number(userId))
         }))
     }
 
+    //Required route for accessing application
     render() {
         return (
             <Switch>
                 <Route path="/" exact render={({ history }) => (
                     <div>
                         <Loginpage usersList={this.state.usersList} history={history} />
-                        {console.log(this.state.usersList)}
+                        {/* {console.log(this.state.usersList)} */}
                     </div>
                 )} />
                 <Route path="/Loginpage" render={({ history }) => (
@@ -96,10 +112,17 @@ class Main extends Component {
                     <AllUsers usersList={this.state.usersList} addTodoUser={this.addTodoUser} history={history} location={location} />
                 )} />
                 <Route path="/Editprofile" render={({ history }) => (
-                    <Editprofile usersList={this.state.usersList} history={history} onAddUser={(newUser => this.addUser(newUser))} onDeleteUserForUpdate={(userId) => this.deleteUser(userId)} onDeleteUser={(userId) => {
-                        this.deleteUser(userId)
-                        history.push("/")
-                    }} />
+                    <Editprofile usersList={this.state.usersList} history={history} onAddUser={(newUser) => { this.addUser(newUser) }} onDeleteUser={(userId) => { this.deleteUser(userId) }} />
+                )} />
+                <Route path="/FilteredUsers" render={({ history, location }) => (
+                    <FilteredUsers usersList={this.state.usersList} addTodoUser={this.addTodoUser} history={history} location={location} />
+                )} />
+                <Route path="/Products" render={({ history, location }) => (
+                    <Products usersList={this.state.usersList} history={history} location={location} />
+                )} />
+                <Route path="/AddProduct" component={AddProduct} />
+                <Route path="/Editproduct" render={({ history, location }) => (
+                    <Editproduct history={history} location={location} />
                 )} />
                 <Route path="*" component={PageNotFound} />
             </Switch>

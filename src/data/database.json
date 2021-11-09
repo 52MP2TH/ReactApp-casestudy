@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "name": "sds",
+      "description": "SdS",
+      "price": "sds",
+      "currency": "sdSD",
+      "expiry_date": "2021-01-22",
+      "id": 3
+    },
+    {
+      "name": "knhfz",
+      "description": "Nature2",
+      "price": "8890",
+      "currency": "INR",
+      "expiry_date": "2026-10-31",
+      "id": 6
+    },
+    {
+      "name": "Samaung On Nxt",
+      "description": "Mobile Phone",
+      "price": "25999",
+      "currency": "INR",
+      "expiry_date": "2026-10-31",
+      "id": 8
+    },
+    {
+      "name": "Realme 7 Pro",
+      "description": "Mobile Phone",
+      "price": "5000",
+      "currency": "USD",
+      "expiry_date": "2026-10-31",
+      "id": 9
+    },
+    {
+      "name": "knhfz",
+      "description": "sfgdh",
+      "price": "5000",
+      "currency": "USD",
+      "expiry_date": "2026-10-31",
+      "id": 10
+    },
+    {
+      "name": "Samaung On Nxt",
+      "description": "Mobile Phone",
+      "price": "121999",
+      "currency": "INR",
+      "expiry_date": "2026-10-31",
+      "id": 11
+    }
+  ]
+}

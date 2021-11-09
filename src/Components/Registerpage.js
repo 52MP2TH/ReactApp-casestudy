@@ -34,6 +34,7 @@ function Registerpage({ history, onAddUser }) {
         }
     }
 
+    //Adding new user
     function handleSubmit(event) {
         event.preventDefault();
         const firstName = event.target.elements.firstName.value;
@@ -41,7 +42,6 @@ function Registerpage({ history, onAddUser }) {
         const profileLink = event.target.elements.profileLink.value;
         const description = event.target.elements.description.value;
         if (!(password === confirmPassword)) {
-            console.log("Password and Confirm password should be same");
             history.push("/Registerpage")
 
         }

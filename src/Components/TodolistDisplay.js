@@ -1,9 +1,11 @@
 import React from "react";
 
 function TodolistDisplay(props) {
+
     return (
         <div>
-            <p>{props.todo}</p>
+            <input type="checkbox" className="strikethrough mx-2" />
+            <span>{props.todo}</span>
         </div>
     )
 }

@@ -7,6 +7,7 @@ class Welcomepage extends Component {
         let path = this.props.location.pathname.split("/:")
         return (
             <div>
+                {console.log(this.props.usersList)}
                 <Navbar userId={path[1]} usersList={this.props.usersList} history={this.props.history} />
                 <Pagebody userId={path[1]} usersList={this.props.usersList} history={this.props.history} />
             </div >
