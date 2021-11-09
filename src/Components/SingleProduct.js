@@ -11,7 +11,7 @@ function SingleProduct(props) {
         history.push("/Editproduct/:" + props.userId + "&" + productId)
     }
 
-    async function deleteProduct() {
+    async function deleteProduct(productId) {
         try {
             axios.delete(`${baseURL}products/${productId}`, {
                 headers: { "Content-Type": "application/json" }

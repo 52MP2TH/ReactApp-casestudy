@@ -10,10 +10,6 @@ import Products from "./Products";
 import AddProduct from "./AddProduct"
 import PageNotFound from "./PageNotFound";
 import Editproduct from "./Editproduct";
-import Products1 from "./Products1";
-import Editproduct1 from "./Editproduct1";
-import AddProduct1 from "./AddProduct1";
-
 
 class Main extends Component {
     constructor() {

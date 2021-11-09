@@ -8,10 +8,10 @@ function Editproduct(props) {
     let history = useHistory();
     let path = props.location.pathname.split("/:")[1]
     let pathName = path.split("&")
-    console.log(pathName)
+    //console.log(pathName)
     let userId = pathName[0]
     let productId = Number(pathName[1])
-    console.log(productId)
+    //console.log(productId)
 
     useEffect(() => {
         async function fetchProduct() {
@@ -73,7 +73,7 @@ function Editproduct(props) {
                 headers: { "Content-Type": "application/json" }
             })
                 .then((res) => {
-                    console.log("update success")
+                    //console.log("update success")
                     history.push("/Products/:" + userId)
                 })
         }
@@ -96,19 +96,19 @@ function Editproduct(props) {
                 </div>
                 <div className="mb-2 form-group">
                     <label htmlFor="description" className="mx-2">Description</label>
-                    <input type="text" name="description" placeholder={productData && productData.description} />
+                    <input type="text" name="description" placeholder={productData && productData.description} defaultValue={productData && productData.description} />
                 </div>
                 <div className="mb-2 form-group">
                     <label htmlFor="price" className="mx-2">Price</label>
-                    <input type="text" name="price" placeholder={productData && productData.price} />
+                    <input type="text" name="price" placeholder={productData && productData.price} defaultValue={productData && productData.price} />
                 </div>
                 <div className="mb-2 form-group">
                     <label htmlFor="currency" className="mx-2">Currency</label>
-                    <input type="text" name="currency" placeholder={productData && productData.currency} />
+                    <input type="text" name="currency" placeholder={productData && productData.currency} defaultValue={productData && productData.currency} />
                 </div>
                 <div className="mb-2 form-group">
                     <label htmlFor="expiry_date" className="mx-2">Expiry Date</label>
-                    <input type="text" name="expiry_date" placeholder={productData && productData.expiry_date} />
+                    <input type="text" name="expiry_date" placeholder={productData && productData.expiry_date} defaultValue={productData && productData.expiry_date} />
                 </div>
                 <div className="text-center">
                     <button type="submit" className="btn btn-outline-primary">Update</button>

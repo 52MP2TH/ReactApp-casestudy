@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import Navbar from "./Navbar";
 import SingleProduct from "./SingleProduct";
 
 function Products(props) {
 
-    const [productsList, setProductsList] = useState([])
+    let history = useHistory();
     let path = props.location.pathname.split("/:")
+    const baseURL = "http://localhost:8000/"
+    const [productsList, setProductsList] = useState([])
     const [ranVariable, setRandVariable] = useState(0)
+    const [productData, setProductData] = useState(null)
 
     useEffect(() => {
         async function fetchProducts() {
             try {
-                // Axios.get("http://localhost:8000/products", {
-                //     headers: { "Content-Type": "application/json" }
-                // })
-                //     .then((res) => setProductsList(res.data))
                 const response = await Axios.get("http://localhost:8000/products", { header: { "Context-Type": "application/json" } })
                 setProductsList(response.data)
             }
@@ -30,8 +30,33 @@ function Products(props) {
         props.history.push("/AddProduct/:" + path[1])
     }
 
-    function reload(newranVariable) {
-        setRandVariable(newranVariable)
+    function editProduct(productId) {
+        history.push("/Editproduct/:" + path[1] + "&" + productId)
+    }
+
+    async function callprodetails(productId) {
+        try {
+            const response = await Axios.get(`http://localhost:8000/products/${productId}`, { headers: { "Content-Type": "application/json" } })
+            setProductData(response.data)
+        }
+        catch (err) {
+            console.log(err, "from fetchproducts in catch")
+        }
+    }
+
+    async function deleteProduct(productId) {
+        try {
+            Axios.delete(`${baseURL}products/${productId}`, {
+                headers: { "Content-Type": "application/json" }
+            })
+                .then((res) => {
+                    // console.log("Deleted Successfully")
+                    setRandVariable(productId)
+                })
+        }
+        catch (err) {
+            console.log(err, "error in deleteProduct")
+        }
     }
 
     return (
@@ -41,10 +66,72 @@ function Products(props) {
                 <div className="text-center">
                     <button className="btn btn-primary mt-3" onClick={addProRedirect}>Add Product</button>
                 </div>
-                <div className="productswallbody">
-                    {productsList.map((product, index) => <SingleProduct key={index} reload={reload} userId={path[1]} product={product} />)}
+                <div className="d-flex">
+                    <div className="productswallbody">
+                        {/* {productsList.map((product, index) => <SingleProduct key={index} reload={reload} userId={path[1]} product={product} />)} */}
+                        <table className="mt-3 table table-striped table-hover">
+                            <thead className="thead-dark">
+                                <tr>
+                                    <th scope="col">S.No</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Currency</th>
+                                    <th scope="col">Click to Edit</th>
+                                    <th scope="col">Click to Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {productsList.map((product, index) => <tr key={index} onMouseOver={() => callprodetails(product.id)} onMouseOut={() => setProductData(null)}>
+                                    <td>{index + 1}</td>
+                                    <td>{product.name}</td>
+                                    <td>{product.description}</td>
+                                    <td>{product.price}</td>
+                                    <td>{product.currency}</td>
+                                    <td><button className="editbutton btn btn-outline-primary" onClick={() => editProduct(product.id)}>Edit</button></td>
+                                    <td><button className="btn btn-outline-danger" onClick={() => deleteProduct(product.id)}>Delete</button></td>
+                                </tr>)}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="singleProduct">
+                        {productData && <div>
+                            <div className="singleProductbody">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>ID</td>
+                                            <td>{productData.id}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>{productData.name}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description</td>
+                                            <td>{productData.description}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>{productData.price}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Currency</td>
+                                            <td>{productData.currency}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Expiry Date</td>
+                                            <td>{productData.expiry_date}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        }
+                    </div>
                 </div>
             </div>
+
         </div>
     )
 }

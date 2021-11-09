@@ -13,7 +13,6 @@ class Navbar extends Component {
         this.props.history.push("/FilteredUsers/:" + this.props.userId + "&" + searchInput)
 
     }
-
     logout() {
         let history = this.props.history;
         history.push("/");

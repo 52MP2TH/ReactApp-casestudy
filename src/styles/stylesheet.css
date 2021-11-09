@@ -191,12 +191,8 @@ h3{
         opacity: 0.5;
         background-size: cover;
 } */
-.productsbody{
+/* .productsbody{
         background-color: #f1f1f1;
-}
-.productswallbody{
-        font-family: "Times New Roman", Times, serif;
-        margin: 20px 20px 0px; 
 }
 .singleProduct{
         display: inline-block;
@@ -217,13 +213,32 @@ h3{
 table{
         margin-top: 5px;
         margin-bottom: 5px;
+}*/
+.productswallbody{
+        font-family: "Times New Roman", Times, serif;
+        width: 1100px; 
+        margin-left: 25px;
+}
+tr:hover {
+        background: #bedfaf;
 }
 .editbutton{
         padding: 5px 20px 5px 20px;
-        margin-left: 75px;
-        margin-right: 100px;
 }
-.addprotitle{
+.singleProduct{
+        margin-left: 75px;
+        margin-top: 200px;
+}
+.singleProductbody tr:hover {background-color: #ddd;}
+.singleProductbody td{
+        padding-right: 50px;
+}
+.singleProductbody{
+        border: solid rgb(65,65,236);
+        border-radius: 5px;
+        padding-left: 10px;
+}
+/* .addprotitle{
         font-family: "Times New Roman", Times, serif;
 }
 .addProductpage{
@@ -232,4 +247,4 @@ table{
 }
 .productadded{
         color: rgb(247, 132, 55);
-}
+}  */

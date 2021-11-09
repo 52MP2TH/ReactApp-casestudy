@@ -53,7 +53,6 @@ class Pagebody extends Component {
             </div>
         )
     }
-
 }
 
 export default Pagebody

@@ -1,6 +1,22 @@
 {
   "products": [
     {
+      "name": "Room Heater",
+      "description": "Orpat",
+      "price": "3199",
+      "currency": "USD",
+      "expiry_date": "2024-12-31",
+      "id": 1
+    },
+    {
+      "name": "iPhone 12",
+      "description": "Apple ",
+      "price": "129999",
+      "currency": "INR",
+      "expiry_date": "2022-03-31",
+      "id": 2
+    },
+    {
       "name": "sds",
       "description": "SdS",
       "price": "sds",
@@ -9,12 +25,12 @@
       "id": 3
     },
     {
-      "name": "knhfz",
-      "description": "Nature2",
-      "price": "8890",
-      "currency": "INR",
-      "expiry_date": "2026-10-31",
-      "id": 6
+      "name": "Macbook Pro",
+      "description": "Apple ",
+      "price": "4999",
+      "currency": "USD",
+      "expiry_date": "2021-01-23",
+      "id": 4
     },
     {
       "name": "Samaung On Nxt",
@@ -25,28 +41,12 @@
       "id": 8
     },
     {
-      "name": "Realme 7 Pro",
-      "description": "Mobile Phone",
-      "price": "5000",
-      "currency": "USD",
-      "expiry_date": "2026-10-31",
-      "id": 9
-    },
-    {
       "name": "knhfz",
       "description": "sfgdh",
       "price": "5000",
       "currency": "USD",
       "expiry_date": "2026-10-31",
       "id": 10
-    },
-    {
-      "name": "Samaung On Nxt",
-      "description": "Mobile Phone",
-      "price": "121999",
-      "currency": "INR",
-      "expiry_date": "2026-10-31",
-      "id": 11
     }
   ]
 }
